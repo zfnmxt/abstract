@@ -16,7 +16,7 @@ data-parallel language and
 
 On the AD side of things, a method for efficient reverse mode AD on nested
 parallel programs is presented. The approach uses a re-computation-based approach
-that eliminates storing program variables for the reverse pass; instead,
+that eliminates storing program variables for the reverse sweep; instead,
 variables are recomputed as needed in each new scope. Under this technique,
 perfectly nested scopes do not introduce re-computation. This is exploited by
 applying a repertoire of compiler transformations to transform code into perfect
