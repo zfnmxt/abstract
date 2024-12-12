@@ -54,9 +54,9 @@ compiler is described and demonstrates the system's practicality.
 \end{center}
 Foreliggende afhandling redegør for to af mine bedrifter:
 \begin{enumerate*}[label=\arabic*)]
-\item udførsel af en programtransformation indbygget i en oversætter,
-  der kan udføre automatisk differentiering (AD) af programmer skrevet
-  i et funktionsorienteret og dataparallelt programmeringssprog, samt
+\item udførsel af en automatisk programbearbejdning, der kan udføre
+  automatisk differentiering (AD) af programmer skrevet i et
+  funktionsorienteret og dataparallelt programmeringssprog, samt
 \item en tilgang til rangpolymorfi i et programmeringssprog med
   statiske typer, parametrisk polymorfi, og typeinferens.
 \end{enumerate*}
@@ -70,16 +70,18 @@ indlejrede løkker ikke genberegning; en egenskab der udnyttes ved at
 foretage automatisk omskrivning af programtekst til slig perfekt
 indlejrede løkker.
 %
-The language uses a lexicon of high-level parallel combinators---such as
-\texttt{map}, \texttt{reduce}, and \texttt{scan}---to build
-parallel-by-construction programs. Rewrite rules to differentiate each
-combinator are derived, yielding nested-parallel code which itself consists of
-parallel combinators. The resulting parallel code is aggressively optimized
-using a suite of general and AD-specific optimizations.
+Det sprog, hvorpå jeg udfører automatisk differentiering, udtrykker
+deterministisk parallelisme via kombinatorer såsom \texttt{map},
+\texttt{reduce}, og \texttt{scan}. Differentieringsreglerne for hver
+af disse kombinatorer gives, som ligeledes er udtrykt via tilsvarende
+parallelle kombinatorer. Den herfra dannede parallele programtekst
+optimeres derefter gennem en række almene og specialiserede
+programoptimeringsteknikker.
 %
-An implementation in the Futhark programming language is reported on and
-evaluated against existing other modern AD implementations on a suite of
-benchmarks, demonstrating competitive performance.
+En konkret udførsel af fremgangsmåden er foretaget på oversætteren for
+programmeringssproget Futhark, og via en eksperimentel sammenligning
+af køretidsresultater med andre værktøjer til AD, demonstreres en
+konkurrencedygtig præstation.
 
 On the rank polymorphism side of things, a mechanism for automatically lifting
 functions and replicating function arguments in a static context is
