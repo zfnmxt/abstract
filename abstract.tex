@@ -1,5 +1,56 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% ENGLISH VERSION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{center}
-  \textbf{Abstract}
+\textbf{Abstract}
+\end{center}
+In this thesis, I describe two things I did:
+\begin{enumerate*}[label=\arabic*)]
+\item a compiler transformation that
+implements performant automatic differentiation (AD) for a functional,
+data-parallel language and
+\item an approach for rank polymorphism in a statically typed language with
+  parametric polymorphism and type inference.
+\end{enumerate*}
+
+On the AD side of things, a method for efficient reverse mode AD on nested
+parallel programs is presented. The approach uses a re-computation-based approach
+that eliminates storing program variables for the reverse pass; instead,
+variables are recomputed as needed in each new scope. Under this technique,
+perfectly nested scopes do not introduce re-computation. This is exploited by
+applying a repertoire of compiler transformations to transform code into perfect
+nests.
+%
+The language uses a lexicon of high-level parallel combinators---such as
+\texttt{map}, \texttt{reduce}, and \texttt{scan}---to build
+parallel-by-construction programs. Rewrite rules to differentiate each
+combinator are derived, yielding nested-parallel code which itself consists of
+parallel combinators. The resulting parallel code is aggressively optimized
+using a suite of general and AD-specific optimizations.
+%
+An implementation in the Futhark programming language is reported on and
+evaluated against existing other modern AD implementations on a suite of
+benchmarks, demonstrating competitive performance.
+
+On the rank polymorphism side of things, a mechanism for automatically lifting
+functions and replicating function arguments in a static context is
+presented. The aim is to capture the programming experience in dynamically typed
+array languages like NumPy and APL, which permit rank-polymorphic applications,
+while also preserving static typing guarantees. The type system---which supports
+parametric polymorphism, higher-order functions, and top-level
+let-generalization---determines the minimum number of lifting and replication
+operations by generating (and solving) integer linear programs from constraints
+generated at function application sites. Key theoretical properties of the
+mechanism are given. An implementation of the mechanism within the Futhark
+compiler is described and demonstrates the system's practicality.
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DANISH VERSION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+\textbf{Resum\'e}
 \end{center}
 In this thesis, I describe two things I did:
 \begin{enumerate*}[label=\arabic*)]
@@ -40,7 +91,3 @@ operations by generating (and solving) integer linear programs from constraints
 generated at function application sites. Key theoretical properties of the
 mechanism are given. An implementation of the mechanism within the Futhark
 compiler is described and demonstrates the system's practicality.
-  \newpage
-\begin{center}
-  \textbf{Resum\'e}
-\end{center}
