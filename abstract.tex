@@ -52,22 +52,23 @@ compiler is described and demonstrates the system's practicality.
 \begin{center}
 \textbf{Resum\'e}
 \end{center}
-In this thesis, I describe two things I did:
+Foreliggende afhandling redegør for to af mine bedrifter:
 \begin{enumerate*}[label=\arabic*)]
-\item a compiler transformation that
-implements performant automatic differentiation (AD) for a functional,
-data-parallel language and
-\item an approach for rank polymorphism in a statically typed language with
-  parametric polymorphism and type inference.
+\item udførsel af en programtransformation indbygget i en oversætter,
+  der kan udføre automatisk differentiering (AD) af programmer skrevet
+  i et funktionsorienteret og dataparallelt programmeringssprog, samt
+\item en tilgang til rangpolymorfi i et programmeringssprog med
+  statiske typer, parametrisk polymorfi, og typeinferens.
 \end{enumerate*}
 
-On the AD side of things, a method for efficient reverse mode AD on nested
-parallel programs is presented. The approach uses a re-computation-based approach
-that eliminates storing program variables for the reverse pass; instead,
-variables are recomputed as needed in each new scope. Under this technique,
-perfectly nested scopes do not introduce re-computation. This is exploited by
-applying a repertoire of compiler transformations to transform code into perfect
-nests.
+For så vidt vedrører AD, da præsenterer jeg en effektiv fremgangsmåde
+for den såkaldte bagvendte tilgang. Denne fremgangsmåde undgår den
+sædvanlige lagring af de mellemresultater der skal bruges til
+returgennemløbet, og genberegner i stedet de nødvendige resultater for
+hvert indlejringstrin i programmet. Som et særtilfælde kræver perfekt
+indlejrede løkker ikke genberegning; en egenskab der udnyttes ved at
+foretage automatisk omskrivning af programtekst til slig perfekt
+indlejrede løkker.
 %
 The language uses a lexicon of high-level parallel combinators---such as
 \texttt{map}, \texttt{reduce}, and \texttt{scan}---to build
